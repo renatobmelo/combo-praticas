@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Add
@@ -16,6 +17,8 @@ import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.BottomAppBar
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExtendedFloatingActionButton
@@ -122,11 +125,10 @@ fun ScaffoldExample() {
                     You have pressed the floating action button $presses times.
                 """.trimIndent(),
             )
-            OutlinedButtonExample() {
-            }
-            ExtendedExample() {
-                
-            }
+            FilledCardExample()
+            OutlinedButtonExample() {}
+            ExtendedExample() {}
+
         }
     }
 
@@ -146,4 +148,23 @@ fun ExtendedExample(onClick: () -> Unit) {
         icon = { Icon(Icons.Filled.Edit, "Extended floating action button.") },
         text = { Text(text = "Pratica Flutuante") },
     )
+}
+
+@Composable
+fun FilledCardExample() {
+    Card(
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surfaceVariant,
+        ),
+        modifier = Modifier
+            .size(width = 240.dp, height = 100.dp)
+    ) {
+        Text(
+            text = "Card Pratica" +"\n"+
+                    "entrega de atividade",
+            modifier = Modifier
+                .padding(16.dp),
+            textAlign = TextAlign.Center,
+        )
+    }
 }
