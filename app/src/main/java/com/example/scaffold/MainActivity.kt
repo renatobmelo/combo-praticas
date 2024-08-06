@@ -12,10 +12,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ExtendedFloatingActionButton
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -120,7 +123,9 @@ fun ScaffoldExample() {
                 """.trimIndent(),
             )
             OutlinedButtonExample() {
-
+            }
+            ExtendedExample() {
+                
             }
         }
     }
@@ -132,4 +137,13 @@ fun OutlinedButtonExample(onClick: () -> Unit) {
     OutlinedButton(onClick = { onClick() }) {
         Text("BOTAO DA PRATICA")
     }
+}
+
+@Composable
+fun ExtendedExample(onClick: () -> Unit) {
+    ExtendedFloatingActionButton(
+        onClick = { onClick() },
+        icon = { Icon(Icons.Filled.Edit, "Extended floating action button.") },
+        text = { Text(text = "Pratica Flutuante") },
+    )
 }
