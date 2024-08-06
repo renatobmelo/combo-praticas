@@ -20,6 +20,7 @@ import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -74,6 +75,7 @@ fun ScaffoldExample() {
                         )
                     }
                 },
+
                 actions = {
                     IconButton(onClick = { /* do something */ }) {
                         Icon(
@@ -117,6 +119,17 @@ fun ScaffoldExample() {
                     You have pressed the floating action button $presses times.
                 """.trimIndent(),
             )
+            OutlinedButtonExample() {
+
+            }
         }
+    }
+
+}
+
+@Composable
+fun OutlinedButtonExample(onClick: () -> Unit) {
+    OutlinedButton(onClick = { onClick() }) {
+        Text("BOTAO DA PRATICA")
     }
 }
